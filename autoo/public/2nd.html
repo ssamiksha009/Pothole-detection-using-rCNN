@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Autopatch</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5dc; /* Cream Background */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Container Styling */
+    .container {
+      display: flex;
+      width: 90%;
+      max-width: 1200px;
+      height: 80vh;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      width: 25%;
+      background-color: #002147; /* Oxford Blue */
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Logo Styling */
+    .logo img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    /* Three Dashes Menu Styling */
+    .three-dashes {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .dash {
+      width: 30px;
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+      margin: 6px 0;
+    }
+
+    /* Menu Options Styling */
+    .menu-options {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .menu-options ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu-options ul li {
+      margin: 15px 0;
+    }
+
+    .menu-options ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .menu-options ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content Styling */
+    .main-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    /* Stylish Welcome Text */
+    .welcome-text h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #28a745, #007bff);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      animation: fadeInText 2s ease-in-out;
+      letter-spacing: 2px;
+      margin-bottom: 50px;
+    }
+
+    /* Fade In Animation for Text */
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      gap: 2rem;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInButtons 2s ease-in-out forwards;
+      animation-delay: 2s;
+    }
+
+    /* Buttons Styling */
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    /* Camera Button */
+    .camera-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    /* Gallery Button */
+    .gallery-btn {
+      background-color: #007bff;
+      color: white;
+    }
+
+    button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Fade In Animation for Buttons */
+    @keyframes fadeInButtons {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar for Logo and Three Dashes Menu -->
+    <div class="sidebar">
+      <!-- App Logo -->
+      <div class="logo">
+        <img src="logo.png" alt="Autopatch Logo">
+      </div>
+
+      <!-- Three Dashes Menu -->
+      <div class="three-dashes" onclick="toggleMenu()">
+        <span class="dash"></span>
+        <span class="dash"></span>
+        <span class="dash"></span>
+      </div>
+
+      <!-- Hidden Dashboard Options -->
+      <div class="menu-options" id="menu-options">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main content with welcome text, camera, and gallery buttons -->
+    <div class="main-content">
+      <div class="welcome-text">
+        <h1>Welcome to Autopatch</h1>
+      </div>
+      <div class="buttons">
+        <button class="camera-btn">Open Camera</button>
+        <button class="gallery-btn">Open Gallery</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Handle Three Dashes Menu Click
+    function toggleMenu() {
+      const menuOptions = document.getElementById("menu-options");
+      if (menuOptions.style.display === "block") {
+        menuOptions.style.display = "none";
+      } else {
+        menuOptions.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Autopatch</title>
+    <link rel="stylesheet" href="./gallery.css">
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="App Logo" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="menu-options" id="menu-options">
+                <ul>
+                    <li><a href="welcomepage.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h1>Gallery</h1>
+            <p>Upload and view your images below:</p>
+            <input type="file" id="imageUpload" accept="image/*" multiple>
+            <div class="image-grid" id="imageGrid"></div>
+
+            <div class="location-box">
+                <button class="location-button" onclick="submitLocation()">Add Location</button>
+            </div>
+
+            <div id="locationDisplay" class="locations-list"></div>
+
+            <div class="complaint-box">
+                <label for="complaintInput">Enter your complaint:</label>
+                <textarea id="complaintInput" class="complaint-input" rows="4" placeholder="Type your complaint here..."></textarea>
+            </div>
+
+            <button class="submit-btn" onclick="submitForm()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        // Handle image upload
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const files = event.target.files;
+            const imageGrid = document.getElementById('imageGrid');
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = `Uploaded Image ${imageGrid.children.length + 1}`;
+                    imageGrid.appendChild(img);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle location submission
+        async function submitLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(async function(position) {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+
+                    // Fetch the What3words address
+                    const response = await fetch(`/get-location?lat=${lat}&lng=${lng}`);
+                    const data = await response.json();
+
+                    if (data.success) {
+                        const locationDisplay = document.getElementById('locationDisplay');
+                        const locationElement = document.createElement('p');
+                        locationElement.textContent = `What3words Location: ${data.address}`;
+                        locationDisplay.appendChild(locationElement);
+                    } else {
+                        alert('Error retrieving location. Please try again.');
+                    }
+                }, function(error) {
+                    console.error(error);
+                    alert('Unable to retrieve your location. Please enable location services.');
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+
+        // Handle form submission
+        function submitForm() {
+            const complaintInput = document.getElementById('complaintInput').value;
+            alert(`Form submitted successfully! \nComplaint: ${complaintInput}`);
+            // You can add the backend integration here
+        }
+    </script>
+</body>
+</html>

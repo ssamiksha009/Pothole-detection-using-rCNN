@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff7e6; /* Cream background */
+            color: #002366; /* Midnight blue text */
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #002366; /* Midnight blue borders */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #002366; /* Midnight blue header background */
+            color: #fff7e6; /* Cream text for header */
+        }
+
+        td {
+            background-color: #fff7e6; /* Cream cell background */
+            color: #002366; /* Midnight blue text */
+        }
+
+        .fixed {
+            background-color: #d4edda; /* Light green for fixed */
+            color: #155724;
+        }
+
+        .warning {
+            background-color: #f8d7da; /* Light red for warning */
+            color: #721c24;
+        }
+
+        /* Simple link styling for the return home link */
+        .return-home {
+            margin: 20px 0;
+        }
+
+        .return-home a {
+            text-decoration: none;
+            color: #002366; /* Midnight blue */
+        }
+
+        .return-home a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Simple Return to Home Page link -->
+    <div class="return-home">
+        <a href="admwp.html">Home</a>
+    </div>
+
+    <h2>Pothole Report by Address/Severity</h2>
+    <table id="potholeTable">
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>Total Potholes</th>
+                <th>Severity</th>
+                <th>Fixed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here by JavaScript -->
+        </tbody>
+    </table>
+
+    <h2>Admin Report by State</h2>
+    <table id="bodyTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Summary</th>
+                <th>Deleted</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here dynamically -->
+        </tbody>
+    </table>
+</div>
+
+<script src="reports.js"></script>
+
+</body>
+</html>

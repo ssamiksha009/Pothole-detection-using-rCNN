@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Autopatch</title>
+  <link rel="stylesheet" href="admstyle.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar for Logo and Three Dashes Menu -->
+    <div class="sidebar">
+      <div class="logo">
+        <img src="logo.png" alt="Autopatch Logo">
+      </div>
+
+      <div class="three-dashes" onclick="toggleMenu()">
+        <span class="dash"></span>
+        <span class="dash"></span>
+        <span class="dash"></span>
+      </div>
+
+      <div class="menu-options" id="menu-options">
+        <ul>
+          <li><a href="admabt.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="settings.html">Settings</a></li>
+          <li><a href="report.html">View All Reports</a></li>
+          <li><a href="users.html">User Management</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main content with welcome text and notifications -->
+    <div class="main-content">
+      <div class="welcome-text">
+        <h1>Welcome to Autopatch</h1>
+        <p>Manage pothole detection and maintenance efficiently.</p>
+      </div>
+
+      <!-- Notifications Section -->
+      <div class="notifications" id="notification-container">
+        <h2>Notifications</h2>
+        <ul id="notification-list">
+          <li>No new complaints.</li> <!-- Example default state -->
+        </ul>
+      </div>
+
+      <!-- Complaints Section -->
+      <div class="complaints">
+        <h2>Complaints</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="complaints-list">
+            <tr>
+              <td>1</td>
+              <td>Pothole on Main St.</td>
+              <td>Pending</td>
+              <td><button class="complete-btn">Complete</button></td>
+            </tr>
+            <!-- More complaints can be dynamically generated here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menuOptions = document.getElementById("menu-options");
+      menuOptions.style.display = menuOptions.style.display === "block" ? "none" : "block";
+    }
+
+    // Example function to mark a complaint as complete
+    document.addEventListener('click', function (e) {
+      if (e.target.classList.contains('complete-btn')) {
+        const row = e.target.closest('tr');
+        row.cells[2].textContent = 'Completed'; // Change status to Completed
+        e.target.disabled = true; // Disable the button after marking complete
+        e.target.textContent = 'Completed'; // Change button text
+      }
+    });
+
+    // Example function to display a notification
+    function addNotification(message) {
+      const notificationList = document.getElementById('notification-list');
+      const li = document.createElement('li');
+      li.textContent = message;
+      notificationList.appendChild(li);
+
+      // Pop-up style for notification
+      const notificationContainer = document.getElementById('notification-container');
+      notificationContainer.classList.add('active');
+
+      // Automatically remove notification after 3 seconds
+      setTimeout(() => {
+        notificationContainer.classList.remove('active');
+        notificationList.removeChild(li);
+      }, 3000);
+    }
+
+    // Simulate adding a notification when a new complaint is lodged
+    setTimeout(() => {
+      addNotification('New complaint received: Pothole on Main St.');
+    }, 2000); // Simulate a complaint being lodged after 2 seconds
+  </script>
+</body>
+</html>

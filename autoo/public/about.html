@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Autopatch</title>
+    <link rel="stylesheet" href="./about.css">
+</head>
+<body>
+    <div class="about-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="App Logo">
+            </div>
+            <div class="three-dashes" onclick="toggleMenu()">
+                <div class="dash"></div>
+                <div class="dash"></div>
+                <div class="dash"></div>
+            </div>
+            <div class="menu-options" id="menu-options">
+                <ul>
+                    <li><a href="welcomepage.html">Home</a></li> <!-- Ensure this link is correct -->
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="about-text">
+                <h1>About Autopatch</h1>
+                <p>Autopatch is a pothole detection system that leverages cutting-edge deep learning models...</p>
+                <p>Our solution is built to assist municipalities and road maintenance authorities...</p>
+                <ul>
+                    <li><strong>YOLO:</strong> Fast, real-time object detection to identify potholes.</li>
+                    <li><strong>Faster R-CNN:</strong> Accurate and robust model for region-based detection.</li>
+                    <li><strong>SSD:</strong> Single shot detector for object classification in road images.</li>
+                    <li><strong>EfficientDet:</strong> Scalable and lightweight object detection model for real-time processing.</li>
+                </ul>
+                <p>By analyzing road conditions, Autopatch provides actionable insights to prioritize road repairs...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

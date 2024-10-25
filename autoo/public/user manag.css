@@ -1,0 +1,46 @@
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+h2 {
+    color: midnightblue;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid midnightblue;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.filter-section {
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #f5f5dc; /* Cream color */
+}
+
+table th, table td {
+    border: 1px solid midnightblue;
+    padding: 10px;
+    text-align: left;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: midnightblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333366; /* Darker shade of midnight blue */
+}

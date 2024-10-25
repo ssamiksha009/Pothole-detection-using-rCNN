@@ -1,0 +1,41 @@
+/* About Page Specific Styles */
+.about-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 15px 25px #002147(0, 0, 0, 0.2);
+  }
+  
+  .about-text {
+    padding: 2rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .about-text h1 {
+    font-size: 2.5rem;
+    color: #002147; /* Midnight Blue */
+    margin-bottom: 1rem;
+  }
+  
+  .about-text p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .about-text ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+  
+  .about-text ul li {
+    font-size: 1.1rem;
+    color: #002147;
+    margin-bottom: 0.5rem;
+  }
+  

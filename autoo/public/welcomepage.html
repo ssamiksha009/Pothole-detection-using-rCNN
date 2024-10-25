@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Autopatch</title>
+  <link rel="stylesheet" href="./stylee.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo">
+        <img src="logo.png" alt="Autopatch Logo">
+      </div>
+      <div class="three-dashes" onclick="toggleMenu()">
+        <span class="dash"></span>
+        <span class="dash"></span>
+        <span class="dash"></span>
+      </div>
+      <div class="menu-options" id="menu-options">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="settings.html">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="welcome-text">
+        <h1>Welcome to Autopatch</h1>
+      </div>
+      <div class="buttons">
+        <button class="camera-btn">Open Camera</button>
+        <button class="gallery-btn" onclick="window.location.href='gallery.html'">Open Gallery</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function toggleMenu() {
+      const menuOptions = document.getElementById("menu-options");
+      menuOptions.style.display = menuOptions.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

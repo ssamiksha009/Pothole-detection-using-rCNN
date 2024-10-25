@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User Management - Admin Panel</title>
+
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="user manag.css">
+
+<div class="container">
+    <h2>User Management</h2>
+    <div class="search-bar">
+        <input type="text" id="searchUser" placeholder="Search by Name, Email, or ID">
+        <button onclick="filterUsers()">Search</button>
+    </div>
+    <div class="filter-section">
+        <label for="roleFilter">Filter by Role:</label>
+        <select id="roleFilter" onchange="filterByRole()">
+            <option value="all">All</option>
+            <option value="user">Common User</option>
+            <option value="authority">Government Authority</option>
+        </select>
+        <label for="statusFilter">Filter by Status:</label>
+        <select id="statusFilter" onchange="filterByStatus()">
+            <option value="all">All</option>
+            <option value="active">Active</option>
+            <option value="suspended">Suspended</option>
+        </select>
+    </div>
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Activity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- User data will be populated here via JavaScript -->
+        </tbody>
+    </table>
+</div>
+<script src="user manag.js"></script>
+</body>
+</html>
